@@ -53,11 +53,13 @@ function atmUserWithdrawel() {
 
                 // check number of bills of the latest bill kind
                 if (billNameAndCount[1][j] === 0) {
-                    alert(`There are `)
+                    alert(`There are no ${billNameAndCount[0][j]} € bills available.`)
                     continue;
                 } else if (billNameAndCount[1][j] >= requiredBills) {
+                    alert(`Enough ${billNameAndCount[0][j]} € bills available.`);
                     given = given + (requiredBills * billNameAndCount[0][j]);
                     alert(`you have been given ${given} € in loop ` + (j+1) + `.`);
+                    // check if in last loop
                     if (j === 3) {
                         continue;
                     } else {
@@ -65,14 +67,15 @@ function atmUserWithdrawel() {
                         alert(`you are missing ${withdrawelNr} € in loop ` + (j+1) + `.`);
                     } 
                 } else if (billNameAndCount[1][j] < requiredBills) {
+                    alert(`Not enough ${billNameAndCount[0][j]} € bills available. Giving you maximum possible amount instead.`);
                     given = given + (billNameAndCount[1][j] * billNameAndCount[0][j]);
                     alert(`you have been given ${given} € in loop ` + (j+1) + `.`);
                 
-                    // don't check for missing money in the last loop
+                    // check if in last loop
                     if (j === 3) {
                         continue;
                     } else {
-                        withdrawelNr = withdrawelNr - given;
+                        withdrawelNr = withdrawelNr - (billNameAndCount[1][j] * billNameAndCount[0][j]);
                         alert(`you are missing ${withdrawelNr} € in loop ` + (j+1) + `.`);
                     }
                 } else {
