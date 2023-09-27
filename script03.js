@@ -15,7 +15,7 @@ function atmMaintenance() {
 function atmUserWithdrawel() {
     let given = 0;
     let validAmount = false;
-    let withdrawelNr = "";
+    let withdrawelNr = 0;
     let requiredBills = 0;
 
     atmShowAll();
@@ -27,10 +27,11 @@ function atmUserWithdrawel() {
         alert("you want to withdraw " + withdrawelNr + " €.");
 
         if (withdrawelNr % 10 === 0) {
-            if (withdrawelNr > 10 && withdrawelNr <= maxNumber) {
+            if (withdrawelNr >= 10 && withdrawelNr <= maxNumber) {
                 validAmount = true;
             } else {
                 alert("Invalid amount! Amount not in range! Please input valid amount.");
+
                 validAmount = false;
             }
         } else {
