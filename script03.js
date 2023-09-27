@@ -8,6 +8,7 @@ function atmShowAll() {
 function atmMaintenance() {
     atmShowAll();
     maxNumber = prompt("Input new maximum withdrawel amount: ");
+    billNameAndCount[1][0] = prompt(`Input new number of bills of ${billNameAndCount[0][0]}s available: `);
 
 }
 
@@ -26,7 +27,7 @@ function atmUserWithdrawel() {
         alert("you want to withdraw " + withdrawelNr + " €.");
 
         if (withdrawelNr % 10 === 0) {
-            if (withdrawelNr > 10 && withdrawelNr < maxNumber) {
+            if (withdrawelNr > 10 && withdrawelNr <= maxNumber) {
                 validAmount = true;
             } else {
                 alert("Invalid amount! Amount not in range! Please input valid amount.");
