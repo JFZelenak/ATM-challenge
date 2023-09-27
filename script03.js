@@ -1,12 +1,23 @@
-function atmFunction() {
 let maxNumber = 10000;
+const billNameAndCount = [[100,50,20,10],[999,3,1,999]];
+
+function atmShowAll() {
+    alert(`the maximum withdrawel amount is ${maxNumber}€. There are ${billNameAndCount[1][0]} x ${billNameAndCount[0][0]} bills, ${billNameAndCount[1][1]} x ${billNameAndCount[0][1]} bills, ${billNameAndCount[1][2]} x ${billNameAndCount[0][2]} bills, ${billNameAndCount[1][3]} x ${billNameAndCount[0][3]} bills.`);
+}
+
+function atmMaintenance() {
+    atmShowAll();
+    maxNumber = prompt("Input new maximum withdrawel amount: ");
+
+}
+
+function atmUserWithdrawel() {
+    let given = 0;
     let validAmount = false;
     let withdrawelNr = "";
     let requiredBills = 0;
-    let given = 0;
-    const billNameAndCount = [[100,50,20,10],[999,3,1,999]];
 
-    alert(`the maximum withdrawel amount is ${maxNumber}€. There are ${billNameAndCount[1][0]} x ${billNameAndCount[0][0]} bills, ${billNameAndCount[1][1]} x ${billNameAndCount[0][1]} bills, ${billNameAndCount[1][2]} x ${billNameAndCount[0][2]} bills, ${billNameAndCount[1][3]} x ${billNameAndCount[0][3]} bills.`);
+    atmShowAll();
 
     // prompt and check withdrawel amount
     while (!validAmount) {
